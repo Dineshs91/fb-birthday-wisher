@@ -30,12 +30,12 @@ var webdriverio = require('webdriverio'),
     }).init();
 
 client
-    .url('https://facebook.com')
+    .url('https://www.facebook.com')
     .setValue('#email', fb_email)
     .setValue('#pass', fb_pass)
     .click('#loginbutton')
     .pause(1000)
-    .click('.fbRemindersTitle')
+    .element('span*=birthday').click('.fbRemindersTitle')
     .pause(1000)
     .setValue('[name="message_text"]', getRandomWish())
     .keys('Enter')
