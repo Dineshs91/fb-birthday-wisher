@@ -1,0 +1,10 @@
+{
+  "name": "birthday-wisher",
+  "dependencies": {
+    "phantomjs": "^1.9.19",
+    "webdriverio": "^3.3.0"
+  },
+  "scripts": {
+    "start": "node scenarios.js"
+  }
+}
