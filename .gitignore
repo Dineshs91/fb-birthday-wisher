@@ -1,4 +1,4 @@
-selenium
 *.jar
 *.log
 node_modules
+support

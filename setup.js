@@ -1,7 +1,7 @@
 var childProcess = require('child_process');
 var http = require('http');
 
-var filename = 'selenium';
+var filename = 'support/selenium';
 var args = ['-jar', filename];
 var seleniumProcess;
 
