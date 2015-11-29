@@ -43,3 +43,8 @@ client
     .end().then(function() {
         setup.exit();
     });
+
+client.on('error', function(err) {
+    console.log(err.body.value.message);
+    setup.exit();
+});

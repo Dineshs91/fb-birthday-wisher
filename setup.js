@@ -10,6 +10,10 @@ var start = function() {
         stdio: 'ignore',
         detached: true
     });
+
+    seleniumProcess.on('error', function(err) {
+        console.err('Error starting selenium server - ' + err);
+    });
 };
 
 var exit = function() {
