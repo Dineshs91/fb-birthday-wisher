@@ -5,6 +5,7 @@
     "webdriverio": "^3.3.0"
   },
   "scripts": {
+    "setup": "node download.js",
     "start": "node scenarios.js"
   }
 }
