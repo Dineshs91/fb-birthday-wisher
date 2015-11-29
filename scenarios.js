@@ -30,21 +30,19 @@ var webdriverio = require('webdriverio'),
     }).init();
 
 client
-    .url('https://www.facebook.com')
-    .setValue('#email', fb_email)
-    .setValue('#pass', fb_pass)
-    .click('#loginbutton')
-    .pause(1000)
-    .element('span*=birthday').click('.fbRemindersTitle')
-    .pause(1000)
-    .setValue('[name="message_text"]', getRandomWish())
-    .keys('Enter')
-    .pause(500)
-    .end().then(function() {
-        setup.exit();
-    });
-
-client.on('error', function(err) {
-    console.log(err.body.value.message);
-    setup.exit();
-});
+    .url('127.0.0.1')
+        .setValue('#email', fb_email)
+        .setValue('#pass', fb_pass)
+        .click('#loginbutton')
+        .pause(1000)
+        .element('span*=birthday').click('.fbRemindersTitle')
+        .pause(1000)
+        .setValue('[name="message_text"]', getRandomWish())
+        .keys('Enter')
+        .pause(500)
+        .catch(function(e) {
+            console.log('caught error:' + e);
+        })
+        .end().then(function() {
+            setup.exit();
+        });
