@@ -6,7 +6,12 @@ var fb_pass = process.env.FB_PASS;
 var wishes = [
     'Happy Birthday !!',
     'Happy Birthday! Have a blast.',
-    'Many more happy returns of the day'
+    'Many more happy returns of the day',
+    'I wish you all the happiness in the world! Happy Birthday.',
+    'Just live it out to the fullest and have fun! Happy Birthday',
+    'I hope you have the best day ever. Happy Birthday!',
+    'Happy Birthday!! May all of your birthday wishes come true.',
+    'Happy Birthday! Welcome to the new age.'
 ];
 
 var getRandomWish = function() {
@@ -41,7 +46,7 @@ client
         .keys('Enter')
         .pause(500)
         .catch(function(e) {
-            console.log('caught error:' + e);
+            console.log(e);
         })
         .end().then(function() {
             setup.exit();
