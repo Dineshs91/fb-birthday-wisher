@@ -24,18 +24,24 @@ var getRandomWish = function() {
 
 setup.start();
 
-var webdriverio = require('webdriverio'),
+setup.eventEmitter.on('start', function() {
+    console.log('start event received.');
+    startWebdriverio();
+});
+
+function startWebdriverio() {
+    var webdriverio = require('webdriverio'),
     client = webdriverio.remote({
         desiredCapabilities: {
             browserName: 'phantomjs',
             'phantomjs.binary.path': require('phantomjs').path,
             resolution : '1024x768'
         },
-        logLevel: 'verbose',
+        logLevel: 'error',
     }).init();
 
-client
-    .url('127.0.0.1')
+    client
+        .url('https://www.facebook.com')
         .setValue('#email', fb_email)
         .setValue('#pass', fb_pass)
         .click('#loginbutton')
@@ -51,3 +57,4 @@ client
         .end().then(function() {
             setup.exit();
         });
+}
