@@ -20,7 +20,7 @@ var start = function() {
         if(data.indexOf("Selenium Server is up and running") > -1) {
 
             console.log('[' + logName + '] Server started successfully');
-            console.log('[' + logName + '] Triggerring start event');
+            console.log('[' + logName + '] Triggering start event');
             eventEmitter.emit('start');
         } else if(data.indexOf("Selenium is already running on port 4444") > -1) {
 
