@@ -53,7 +53,7 @@ function startWebdriverio() {
         .keys('Enter')
         .pause(500)
         .catch(function(e) {
-            console.log('[' + logName + ']' + e.message);
+            console.log('[' + logName + '] ' + e.message);
         })
         .end().then(function() {
             setup.exit();
