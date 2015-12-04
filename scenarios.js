@@ -1,4 +1,5 @@
-var setup = require('./setup.js')
+var setup = require('./setup.js');
+var logName = "webdriverio";
 
 var fb_email = process.env.FB_EMAIL;
 var fb_pass = process.env.FB_PASS;
@@ -25,7 +26,7 @@ var getRandomWish = function() {
 setup.start();
 
 setup.eventEmitter.on('start', function() {
-    console.log('start event received.');
+    console.log('[' + logName + '] start event received.');
     startWebdriverio();
 });
 
@@ -37,7 +38,7 @@ function startWebdriverio() {
             'phantomjs.binary.path': require('phantomjs').path,
             resolution : '1024x768'
         },
-        logLevel: 'error',
+        logLevel: 'none',
     }).init();
 
     client
@@ -52,7 +53,7 @@ function startWebdriverio() {
         .keys('Enter')
         .pause(500)
         .catch(function(e) {
-            console.log(e);
+            console.log('[' + logName + ']' + e.message);
         })
         .end().then(function() {
             setup.exit();
