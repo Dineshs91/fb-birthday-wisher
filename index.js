@@ -36,7 +36,6 @@ function startWebdriverio() {
         desiredCapabilities: {
             browserName: 'phantomjs',
             'phantomjs.binary.path': require('phantomjs').path,
-            resolution : '1024x768'
         },
         logLevel: 'none',
     }).init();
