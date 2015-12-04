@@ -6,7 +6,7 @@
   },
   "scripts": {
     "setup": "node download.js",
-    "start": "node scenarios.js",
+    "start": "node index.js",
     "fix": "curl http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleniumServer"
   }
 }
