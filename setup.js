@@ -1,6 +1,6 @@
 var http = require('http');
 var fs = require('fs');
-
+var progressBar = require('progress');
 
 console.log('Starting selenium setup');
 
@@ -47,17 +47,36 @@ var download = function(url, dest, cb) {
         response.pipe(file);
     });
 
+    request.on('response', function(res) {
+        var len = parseInt(res.headers['content-length'], 10);
+
+        console.log();
+        var bar = new progressBar('  downloading [:bar] :percent :etas', {
+            complete: '=',
+            incomplete: ' ',
+            width: 20,
+            total: len
+        });
+
+        res.on('data', function(chunk) {
+            bar.tick(chunk.length);
+        });
+
+        res.on('end', function() {
+            console.log('\n');
+        });
+    });
+
     file.on('finish', function() {
         file.close(cb);
     });
 }
 
 if (downloadSelenium) {
-    console.log('Downloading standalone selenium server');
     download(seleniumUrl, dest, function() {
-        console.log('Donwload complete');
         console.log('Selenium setup process completed successfully');
     });
 } else {
+    console.log('Selenium standalone server exists. Skipping download...');
     console.log('Selenium setup process completed successfully');
 }

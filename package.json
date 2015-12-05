@@ -10,6 +10,7 @@
   "author": "Dinesh S",
   "dependencies": {
     "phantomjs": "^1.9.19",
+    "progress": "^1.1.8",
     "webdriverio": "^3.3.0"
   },
   "scripts": {
