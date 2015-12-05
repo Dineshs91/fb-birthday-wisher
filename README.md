@@ -9,7 +9,9 @@ your best one's.
     npm start
     
 If you get an error saying "Selenium server is already running on port 4444"
-run ```npm run fix```
+run 
+
+    npm run fix
 
 #### Contributions
 
