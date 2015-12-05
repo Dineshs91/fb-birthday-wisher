@@ -4,6 +4,9 @@ var fs = require('fs');
 
 console.log('Starting selenium setup');
 
+var seleniumUrl = "http://selenium-release.storage.googleapis.com/2.47/selenium-server-standalone-2.47.0.jar";
+var dest = "support/selenium.jar";
+
 var dirExists = function(path) {
     try {
         return fs.statSync(path).isDirectory();
@@ -38,15 +41,23 @@ if (isDir) {
     downloadSelenium = !isSeleniumPresent;
 }
 
-if (downloadSelenium) {
-    console.log('Downloading standalone selenium server');
+var download = function(url, dest, cb) {
+    var file = fs.createWriteStream(dest);
+    var request = http.get(url, function(response) {
+        response.pipe(file);
+    });
 
-    var file = fs.createWriteStream("support/selenium.jar");
-    var request = http.get("http://selenium-release.storage.googleapis.com/2.47/selenium-server-standalone-2.47.0.jar",
-                          function(response) {
-                              response.pipe(file);
-                          });
-    console.log('Donwload complete');
+    file.on('finish', function() {
+        file.close(cb);
+    });
 }
 
-console.log('Selenium setup process completed successfully');
+if (downloadSelenium) {
+    console.log('Downloading standalone selenium server');
+    download(seleniumUrl, dest, function() {
+        console.log('Donwload complete');
+        console.log('Selenium setup process completed successfully');
+    });
+} else {
+    console.log('Selenium setup process completed successfully');
+}
