@@ -53,6 +53,7 @@ function startWebdriverio() {
         .pause(500)
         .catch(function(e) {
             console.log('[' + logName + '] ' + e.message);
+            console.log('[' + logName + '] ' + "Seems like there are no birthday's today");
         })
         .end().then(function() {
             setup.exit();
