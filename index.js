@@ -1,4 +1,4 @@
-var setup = require('./setup.js');
+var selenium = require('./selenium.js');
 var logName = "webdriverio";
 
 var fb_email = process.env.FB_EMAIL;
@@ -23,9 +23,9 @@ var getRandomWish = function() {
     return wishes[index];
 };
 
-setup.start();
+selenium.start();
 
-setup.eventEmitter.on('start', function() {
+selenium.eventEmitter.on('start', function() {
     console.log('[' + logName + '] start event received.');
     startWebdriverio();
 });
@@ -56,6 +56,6 @@ function startWebdriverio() {
             console.log('[' + logName + '] ' + "Seems like there are no birthday's today");
         })
         .end().then(function() {
-            setup.exit();
+            selenium.exit();
         });
 }
