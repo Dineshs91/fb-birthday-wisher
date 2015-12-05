@@ -1,5 +1,13 @@
 {
   "name": "birthday-wisher",
+  "version": "0.1.0",
+  "description": "Send birthday wishes to your facebook friends using this bot",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dineshs91/fb-birthday-wisher"
+  },
+  "license": "GPL v2.0",
+  "author": "Dinesh S",
   "dependencies": {
     "phantomjs": "^1.9.19",
     "webdriverio": "^3.3.0"
