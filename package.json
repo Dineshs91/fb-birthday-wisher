@@ -13,7 +13,7 @@
     "webdriverio": "^3.3.0"
   },
   "scripts": {
-    "setup": "node download.js",
+    "setup": "node setup.js",
     "start": "node index.js",
     "fix": "curl http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleniumServer"
   }
