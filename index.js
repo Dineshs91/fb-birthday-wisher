@@ -37,7 +37,7 @@ function startWebdriverio() {
             browserName: 'phantomjs',
             'phantomjs.binary.path': require('phantomjs').path,
         },
-        logLevel: 'none',
+        logLevel: 'silent',
     }).init();
 
     client
