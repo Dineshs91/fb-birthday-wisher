@@ -46,16 +46,19 @@ function startWebdriverio() {
         .setValue('#pass', fb_pass)
         .click('#loginbutton')
         .pause(1000)
-        .element('span*=birthday').click('.fbRemindersTitle')
-        .pause(1000)
-        .setValue('[name="message_text"]', getRandomWish())
-        .keys('Enter')
-        .pause(500)
-        .catch(function(e) {
-            console.log('[' + logName + '] ' + e.message);
-            console.log('[' + logName + '] ' + "Seems like there are no birthday's today");
-        })
-        .end().then(function() {
+        .isExisting('span*=birthday').then(function(isExisting) {
+            if(isExisting) {
+                client.element('span*=birthday').click('.fbRemindersTitle')
+                    .pause(1000)
+                    .setValue('[name="message_text"]', getRandomWish())
+                    .keys('Enter')
+                    .pause(500);
+            } else {
+                console.log('[' + logName + '] Looks like there are no birthdays today.');
+            }
+        }).catch(function(e) {
+            console.log('[' + logName + ' error] ' + e.message);
+        }).end().then(function() {
             selenium.exit();
         });
 }
