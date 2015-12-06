@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/Dineshs91/fb-birthday-wisher"
   },
-  "license": "GPL v2.0",
+  "license": "GPL-2.0",
   "author": "Dinesh S",
   "dependencies": {
     "phantomjs": "^1.9.19",
