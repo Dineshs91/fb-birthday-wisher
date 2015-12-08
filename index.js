@@ -45,20 +45,29 @@ function startWebdriverio() {
         .setValue('#email', fb_email)
         .setValue('#pass', fb_pass)
         .click('#loginbutton')
-        .pause(1000)
+        .pause(300)
         .isExisting('span*=birthday').then(function(isExisting) {
             if(isExisting) {
-                client.element('span*=birthday').click('.fbRemindersTitle')
-                    .pause(1000)
-                    .setValue('[name="message_text"]', getRandomWish())
-                    .keys('Enter')
-                    .pause(500);
+                return this.element('span*=birthday').click('.fbRemindersTitle')
+                    .pause(500)
+                    .waitForExist('[name="message_text"]', 1000).then(function() {
+                        return this.setValue('[name="message_text"]', getRandomWish());
+                    }).keys('Enter')
+                    .pause(200);
             } else {
                 console.log('[' + logName + '] Looks like there are no birthdays today.');
+                return this.pause(100);
             }
-        }).catch(function(e) {
-            console.log('[' + logName + ' error] ' + e.message);
-        }).end().then(function() {
+        }).then(function() {
+            return this.catch(function(e) {
+                console.log('[' + logName + ' error] ' + e.message);
+            });
+        }).then(function() {
+            this.end().then(function() {
+                selenium.exit();
+            });
+        }).catch(function(err) {
+            console.log(err);
             selenium.exit();
         });
 }
