@@ -32,6 +32,8 @@ FB_PASS=fb password
     npm run setup
     npm start
     
+Make sure you have ```java``` installed. It is requried for running selenium.
+
 If you get an error saying "Selenium server is already running on port 4444"
 run 
 
@@ -46,6 +48,12 @@ webdriverio code can be found in index.js
 #### Todo
 
 - [ ] Logout of fb
+
+#### Platform
+* Linux
+* Mac os X
+
+Can be made to work on windows also. (PR's are welcome).
 
 #### Contributions
 
