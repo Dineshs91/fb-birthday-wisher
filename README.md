@@ -28,6 +28,7 @@ You need to set the below 2 environment variables
 FB_EMAIL=email id(associated with fb)<br/>
 FB_PASS=fb password
 
+    npm install
     npm run setup
     npm start
     
