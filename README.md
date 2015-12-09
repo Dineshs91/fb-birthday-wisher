@@ -5,6 +5,22 @@ your best one's.
 
 Powered by [webdriverio](http://webdriver.io/)
 
+#### Why virtual browser and browser automation ?
+
+The first thing I looked up to was fb api. There are lot of issues, which made it difficult to use api approach.
+
+1. Getting all your friends. 
+  * If you check the document for [friends](https://developers.facebook.com/docs/graph-api/reference/v2.5/user/friends)
+    in the permissions section, they have mentioned that "This will only return any friends who have used (via Facebook 
+    Login) the app making the request". So we would not be able to get all friends. 
+    You can check it in graph [explorer](https://developers.facebook.com/tools/explorer/). Enter ```/me/friends``` and
+    see what you get. You will see that not all your friends are returned.
+
+2. Posting on friends wall.
+
+These are the 2 challenges I faced, that forced me to use the virtual and automation approach. If you know a workaround
+for these issues, please send a PR or raise an issue. 
+
 #### Getting started
 
 You need to set the below 2 environment variables
