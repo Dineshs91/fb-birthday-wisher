@@ -54,8 +54,6 @@ webdriverio code can be found in index.js
 * Mac os X
 * Windows
 
-Can be made to work on windows also. (PR's are welcome).
-
 #### Contributions
 
 All kinds of contributions are most welcome.
