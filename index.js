@@ -27,6 +27,18 @@ selenium.start();
 
 selenium.eventEmitter.on('start', function() {
     console.log('[' + logName + '] start event received.');
+
+    if (fb_email === "" || fb_email === undefined) {
+        console.log('[' + logName + '] fb_email env variable not set.');
+        selenium.exit();
+        return;
+    }
+    if (fb_pass === "" || fb_pass === undefined) {
+        console.log('[' + logName + '] fb_pass env variable not set.');
+        selenium.exit();
+        return;
+    }
+
     startWebdriverio();
 });
 
