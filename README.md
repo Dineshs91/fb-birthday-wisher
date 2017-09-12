@@ -43,7 +43,7 @@ run
 First selenium standalone server is started. A ```start``` event is triggered after server is started
 successfully. Webdriverio code is executed on receiving ```start``` event.
 
-webdriverio code can be found in index.js
+webdriverio code can be found in [index.js](https://github.com/Dineshs91/fb-birthday-wisher/blob/master/index.js)
 
 #### Todo
 
